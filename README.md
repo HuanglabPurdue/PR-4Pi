@@ -20,7 +20,7 @@ Parallel Computing Toolbox in MATLAB
 	SR4pi_demo_example.m	-	demo script of the software
 	
 ## How to run
-	1. Change current folder in Matlab to PR-4Pi software.
+	1. Change current folder in Matlab to PR-4Pi.
 	2. Run demo script SR4pi_demo_example.m. (Note: there are a few steps requiring user interactions, please see the demo script for details.)
 	3. Type ‘help SR4pi_demo’ in Matlab command window for detailed help on SR4pi_demo class.
 	
