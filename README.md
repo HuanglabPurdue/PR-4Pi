@@ -27,5 +27,7 @@ Parallel Computing Toolbox in MATLAB
 ## Citation
 Please cite PR-4Pi in your publications if it helps your research:
 
+Liu, S., Huang, F. Enhanced 4Pi single-molecule localization microscopy with coherent pupil based localization. Commun Biol 3, 220 (2020). https://doi.org/10.1038/s42003-020-0908-2
+
   
 
