@@ -1,0 +1,73 @@
+-------------Compiling Instruction of the Source Code-------------------------
+
+Required softwares: 
+
+	Visual Studio 2013
+	MATLAB 2016 or newer
+	CUDA Toolkit 7.0 or newer
+
+
+Compiling procedures:
+
+1. Add Environment Variables MATLABROOT on the Windows system: for both User variables and System variables, click New and input the following:
+	----------------------------------------------
+	Variable name: MATLABROOT 
+	Variable value: C:\Program Files\MATLAB\R2016b
+	----------------------------------------------
+The variable value should be the installation folder of your MATLAB, then click OK.
+
+2. Copy the included CUDA template (CUDA.zip) to the project template folder of Visual Studio 2013: 	
+	--------------------------------------------------------
+	Documents\Visual Studio 2013\Templates\ProjectTemplates\
+	--------------------------------------------------------
+
+3. Start Visual Studio and create a new project. Select Templates\Visual C++\CUDA and name the project with the same name of the mex-function to be compiled, for example: 
+	----------------------------------------
+	Name: 		cuda4pi_loc_spline_consI
+	Solution name:	cuda4pi_loc_spline_consI
+	----------------------------------------
+Then click OK.
+
+4. Go to the source code folder of the created project, for example: 
+	-------------------------------------------------------------
+	Yourfolder\cuda4pi_loc_spline_consI\cuda4pi_loc_spline_consI\ 
+	-------------------------------------------------------------
+Delete all .cu, .cpp and .h (.cuh, .hpp) files.
+
+5. Under the Solution Explorer of Visual Studio 2013, remove all files under Yourproject\Header Files\ and Yourproject\Source Files\.
+
+6. Copy all .cu, .cpp and .h (.cuh, .hpp) files from the corresponding source code folder in the software package into the source code folder of the created project, for example: 
+	----------------------------------------------------------------------
+	from 	PR4Pi_software\mex source code\cuda4pi_loc_spline_consI\  
+	to  	Yourfolder\cuda4pi_loc_spline_consI\cuda4pi_loc_spline_consI\
+	----------------------------------------------------------------------
+
+7. Under the Solution Explorer of Visual Studio 2013, right click at Yourproject\Header Files\ and select Add\Existing item... and in the pop up window select all .h (.cuh, .hpp) files and click Add. 
+
+8. Under the Solution Explorer of Visual Studio 2013, right click at Yourproject\Source Files\ and select Add\Existing item... and in the pop up window select all .cu and .cpp files and click Add. 
+
+9. Under the Solution Explorer of Visual Studio 2013, right click at Yourproject and select Properties. In the pop up window, setup as follows:
+	---------------------------------
+	Configuration: All Configurations
+	Platform: x64
+	---------------------------------
+
+Under Configuration Properties\VC++ Directories, you will see MATLABROOT is used under Include and Library Directories, this is why setting up the Environment Variables is important (see step 1). Then click OK.
+
+10. Under the Solution Explorer of Visual Studio 2013, right click at Yourproject and select Build Dependencies\Build Customizations, and in the pop up window, select the CUDA version(s) you want to compile it into, for example: CUDA 7.5. You need to make sure the prefered CUDA Toolkits are installed in your PC. Then click OK. 
+ 
+11. Under the Configuration Manager of Visual Studio 2013, setup as follows:
+	--------------------------------------
+	Active solution configuration: Release
+	Active solution platform: x64. 
+	--------------------------------------
+
+12. Under the Solution Explorer of Visual Studio 2013, right click at Yourproject and select Build. Visual Studio will start compiling. 
+
+13. If compiling succeeded, you will find the .mexw64 file under your project folder, for example: 
+	-------------------------------------------------------------------------------
+	Yourfolder\cuda4pi_loc_spline_consI\x64\Release\cuda4pi_loc_spline_consI.mexw64 
+	-------------------------------------------------------------------------------
+	
+14. Copy the .mexw64 file under the MATLAB working directory where you would like to call this function in MATLAB. 
+
