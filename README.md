@@ -2,7 +2,7 @@
 PR-4Pi software package for analyzing single molecule blinking dataset from 4Pi-SMSN systems.
 
 ## Description
-The demo package consists of functions and scripts written in MATLAB (MathWorks, Natick, MA). The code has been tested in MATLAB version R2016b. The current version is only supported on Windows platform with GPU equipped. 
+The demo package consists of functions and scripts written in MATLAB (MathWorks, Natick, MA). The software has been tested in MATLAB version R2016b. The current version is only supported on Windows platform with GPU equipped. 
 
 ## Required packages
 DIP image toolbox (http://www.diplib.org/download) 
