@@ -1,0 +1,13 @@
+function [blurimg,scale,xc,yc] = genblurimg(R,x,y,sigma)
+xco = x - min(x);
+yco = y - min(y);
+scale = max(yco)/R.*1.2;
+xs = xco./scale;
+ys = yco./scale;
+xsz = ceil(R*max(xco)/max(yco));
+xc = (max(xs)-xsz)./2;
+yc = (max(ys)-R)./2;
+xs1 = single(xs-xc);
+ys1 = single(ys-yc);
+blurimg = cHistRecon(xsz,R,xs1,ys1,0);
+blurimg = gaussf(permute(dip_image(stretch(blurimg),'uint8'),[2 1]),sigma);

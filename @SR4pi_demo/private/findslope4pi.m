@@ -1,0 +1,19 @@
+function [sse,refim,scale_ref,xc_ref,yc_ref,accx]=findslope4pi(x,p_phi0,dataim,R,sigma)
+N = 200;
+p_phi = p_phi0 + x;
+sr_sim = linspace(-6,6,N);
+phi_sim = polyval([p_phi,0],sr_sim);
+mask = phi_sim>-2*pi & phi_sim<2*pi;
+sr_sim = sr_sim(mask);
+phi_sim = phi_sim(mask);
+phi_sim = wrapToPi(phi_sim);
+% phi_sim1 = repmat(phi_sim,Npeak,1)';
+% sr_sim1 = repmat(sr_sim,Npeak,1)'-repmat([0:Npeak].*2.*pi/p_phi0,numel(sr_sim),1);
+[refim,scale_ref,xc_ref,yc_ref] = genblurimg(R,sr_sim',phi_sim',sigma);
+
+refim = refim-mean(refim(:));
+refim = refim/std(refim(:));
+acc = xcorr2(double(dataim),double(refim));
+accx = double(acc(R,:));
+mcc = max(accx);
+sse = -1*mcc;
