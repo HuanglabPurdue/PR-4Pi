@@ -13,7 +13,7 @@ Parallel Computing Toolbox in MATLAB
 
 ## Content of the software package
 	SR4pi_demo 	-	Matlab class for analyzing 4Pi-SMSN data
-	PSF Toolbox	-	A set of Matlab classes for phase retrieval (see [PSF Toolbox manual] (https://github.com/HuanglabPurdue/PR-4Pi/blob/master/PSF Toolbox/user manual for PSF toolbox.pdf))
+	PSF Toolbox	-	A set of Matlab classes for phase retrieval
 	mex		-	mex-functions used in the software package
 	source code	-	c and cuda source code for major mex-functions
 	test data	-	test data for the demo script of the software
